@@ -17,32 +17,41 @@
 <body>
     <div id="app-container">
         <header>
-            <h1>Your Friend</h1>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
+            <h1 data-translate-key="headerTitle">Your Friend</h1>
+            <div class="header-buttons">
+                <select id="language-selector" aria-label="Select language"></select>
+                <button id="mood-trends-btn" aria-label="View mood trends" data-translate-key-aria="moodTrendsAria">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                </button>
+                <button id="theme-toggle" aria-label="Toggle theme" data-translate-key-aria="toggleThemeAria">
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
         </header>
         <div id="chat-container">
-            <div class="message model-message">
-                <div class="avatar"></div>
-                <p>Hey there! I'm here to listen. What's on your mind today?</p>
-            </div>
-            <div id="suggested-prompts">
-                <button class="prompt-btn">I'm feeling anxious</button>
-                <button class="prompt-btn">I had a bad day</button>
-                <button class="prompt-btn">Can we just talk?</button>
-            </div>
+            <!-- Suggested prompts are removed to start directly with the questionnaire -->
+            <div id="suggested-prompts"></div>
         </div>
         <footer>
             <form id="chat-form">
-                <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off" aria-label="Chat input">
-                <button type="submit" aria-label="Send message">
+                <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off" aria-label="Chat input" data-translate-key-placeholder="chatInputPlaceholder">
+                <button type="submit" aria-label="Send message" data-translate-key-aria="sendAria">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </form>
-            <p class="disclaimer">Disclaimer: This is an AI assistant and not a substitute for professional medical advice. If you are in crisis, please contact a healthcare professional.</p>
+            <p class="disclaimer" data-translate-key="disclaimer">Disclaimer: This is an AI assistant and not a substitute for professional medical advice. If you are in crisis, please contact a healthcare professional.</p>
         </footer>
+    </div>
+
+    <div id="mood-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="close-btn" aria-label="Close mood trends" data-translate-key-aria="closeAria">&times;</button>
+            <h2 data-translate-key="moodModalTitle">Your Mood Trends</h2>
+            <div id="mood-chart-container">
+                <!-- Chart will be rendered here by JavaScript -->
+            </div>
+        </div>
     </div>
 </body>
 </html>
